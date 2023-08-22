@@ -1,0 +1,18 @@
+_export:
+  td:
+    database: l0_snipcart
+    table: abandoned_cart
+
++get_abandoned:
+  py>: py_scripts.snipcart.get_abandoned
+  database_name: ${td.database}
+  table_name: ${td.table}
+  docker:
+    image: "digdag/digdag-python:3.9"
+  _env:
+    SC_API_KEY: ${secret:sc_apikey}
+    SC_API_PASSWD: ${secret:sc_passwd}
+    SC_SERVER: "https://app.snipcart.com/api/carts/abandoned?offset=0&limit=50&timeRange=LessThanAMonth"
+    TD_API_KEY: ${secret:apikey}
+    TD_API_SERVER: "https://api.treasuredata.com"
+  
