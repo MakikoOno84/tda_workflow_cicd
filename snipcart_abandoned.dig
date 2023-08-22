@@ -16,3 +16,4 @@ _export:
     TD_API_KEY: ${secret:apikey}
     TD_API_SERVER: "https://api.treasuredata.com"
   
+## これは継続的デリバリーのテストです ##
